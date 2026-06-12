@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const postPath = (id: string) => `/blog/${id.replace(/\.md$/, "")}/`;
+---
+
+<BaseLayout title="Notes | Osushi Gallery" description="Osushi Gallery の制作メモ一覧。">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Osushi Gallery home">
+      <img class="brand__mark" src="/assets/icon.jpg" alt="" width="40" height="40" />
+      <span>Osushi Gallery</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/#works">Works</a>
+      <a href="/#profile">About</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="section">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">Notes</p>
+          <h1>Archive Notes</h1>
+        </div>
+      </div>
+
+      <div class="note-grid">
+        {posts.map((post) => (
+          <a class="note-card" href={postPath(post.id)}>
+            <time datetime={post.data.date.toISOString()}>{post.data.date.getFullYear()}</time>
+            <strong>{post.data.title}</strong>
+            <span>{post.data.description}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

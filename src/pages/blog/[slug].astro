@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.md$/, "") },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Osushi Gallery`} description={post.data.description}>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Osushi Gallery home">
+      <img class="brand__mark" src="/assets/icon.jpg" alt="" width="40" height="40" />
+      <span>Osushi Gallery</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/#works">Works</a>
+      <a href="/blog/">Notes</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <article class="post">
+      <a class="back-link" href="/blog/">Notes</a>
+      <p class="eyebrow">{post.data.tags.join(" / ")}</p>
+      <h1>{post.data.title}</h1>
+      <p class="post__description">{post.data.description}</p>
+      <Content />
+    </article>
+  </main>
+</BaseLayout>

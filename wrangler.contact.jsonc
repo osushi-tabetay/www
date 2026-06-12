@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "osushi-gallery-contact",
+  "main": "workers/contact.ts",
+  "compatibility_date": "2026-06-13",
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "remote": true
+    }
+  ],
+  "vars": {
+    "CONTACT_TO": "karin+osushi-gallary@manj.io",
+    "CONTACT_FROM": "osushi-gallary@manj.io",
+    "ALLOWED_ORIGIN": "http://127.0.0.1:4321,https://osushi-gallary.pages.dev"
+  }
+}

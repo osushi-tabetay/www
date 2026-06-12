@@ -1,0 +1,23 @@
+---
+import type { PortfolioWork } from "../data/portfolio";
+
+type Props = {
+  work: PortfolioWork;
+};
+
+const { work } = Astro.props;
+---
+
+<article class="work-card" data-work-card data-category={work.category}>
+  <button class="work-card__button" type="button" data-open-work={work.id} aria-haspopup="dialog">
+    <span class="work-card__art" style={`--card-accent: ${work.palette}`}>
+      <span class="work-card__spark"></span>
+      <span class="work-card__titlemark">{work.title.slice(0, 2)}</span>
+    </span>
+    <span class="work-card__body">
+      <span class="eyebrow">{work.category} / {work.year}</span>
+      <strong>{work.title}</strong>
+      <span>{work.summary}</span>
+    </span>
+  </button>
+</article>
