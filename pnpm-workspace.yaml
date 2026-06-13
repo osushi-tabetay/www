@@ -1,3 +1,6 @@
+packages:
+  - contact-worker
+
 allowBuilds:
   esbuild: true
   sharp: true

@@ -220,6 +220,12 @@ importers:
         specifier: ^4.100.0
         version: 4.100.0
 
+  contact-worker:
+    devDependencies:
+      wrangler:
+        specifier: ^4.100.0
+        version: 4.100.0
+
 packages:
 
   '@astrojs/check@0.9.9':

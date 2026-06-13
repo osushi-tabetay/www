@@ -51,7 +51,13 @@ Cloudflare Pages can also deploy directly from the repository using the same bui
 
 The contact form posts JSON to `PUBLIC_CONTACT_ENDPOINT` when set, or `/contact` by default.
 
-The Worker lives in `workers/contact.ts` and is configured by `wrangler.contact.jsonc`.
+The Worker lives in `contact-worker/src/contact.ts` and is configured by `contact-worker/wrangler.jsonc`.
+
+For Cloudflare Workers Builds, configure the contact Worker repository integration with:
+
+- Root directory: `contact-worker`
+- Build command: leave empty
+- Deploy command: `pnpm deploy`
 
 Deploy the Worker:
 
@@ -80,7 +86,7 @@ The Worker expects these variables:
 - `CONTACT_WORKER_SECRET`
 - `ALLOWED_ORIGIN`
 
-`ALLOWED_ORIGIN` is a comma-separated allowlist. The production site origin is configured in `wrangler.contact.jsonc`.
+`ALLOWED_ORIGIN` is a comma-separated allowlist. The production site origin is configured in `contact-worker/wrangler.jsonc`.
 The Pages project and contact Worker must share the same `CONTACT_WORKER_SECRET`.
 The public form posts to the Pages `/contact` Function, which forwards to
 `https://contact.tabetay.com/contact` with the secret header.

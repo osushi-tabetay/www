@@ -52,7 +52,7 @@ pnpm deploy:contact
 - `src/content/blog/`: Note articles
 - `src/scripts/portfolio.ts`: client-side filters, dialogs, contact form
 - `src/styles/global.css`: theme tokens and layout
-- `workers/contact.ts`: contact mail Worker
+- `contact-worker/`: contact mail Worker and Wrangler config
 - `public/assets/`: icon and visual assets
 
 ## Documentation

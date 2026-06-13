@@ -4,13 +4,13 @@
   "description": "Illustrator portfolio site built with Astro and TypeScript.",
   "scripts": {
     "dev": "astro dev",
-    "dev:contact": "wrangler dev --config wrangler.contact.jsonc",
+    "dev:contact": "pnpm --dir contact-worker dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "deploy": "pnpm deploy:site",
     "deploy:site": "pnpm build && wrangler pages deploy dist --project-name osushi-gallary",
-    "deploy:contact": "wrangler deploy --config wrangler.contact.jsonc",
-    "deploy:contact:dry-run": "wrangler deploy --config wrangler.contact.jsonc --dry-run"
+    "deploy:contact": "pnpm --dir contact-worker deploy",
+    "deploy:contact:dry-run": "pnpm --dir contact-worker deploy:dry-run"
   },
   "keywords": [],
   "author": "",
