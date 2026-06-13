@@ -11,6 +11,25 @@ The Astro site uses static output.
 - Wrangler config: `wrangler.jsonc`
 - Site URL in Astro config: `https://osushi-gallary.pages.dev`
 
+## Temporary Page Authentication
+
+Pages are protected by `functions/_middleware.ts` and require these Pages
+secrets:
+
+- `BASIC_AUTH_USERNAME`
+- `BASIC_AUTH_PASSWORD`
+
+Set them for Cloudflare Pages:
+
+```sh
+pnpm exec wrangler pages secret put BASIC_AUTH_USERNAME --project-name osushi-gallary
+pnpm exec wrangler pages secret put BASIC_AUTH_PASSWORD --project-name osushi-gallary
+```
+
+For local Pages Functions testing, create a local-only `.dev.vars` file with
+the same keys, then run `pnpm build` and `pnpm exec wrangler pages dev dist`.
+If either secret is missing, Pages Functions returns `503`.
+
 Deploy the site:
 
 ```sh
