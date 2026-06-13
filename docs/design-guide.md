@@ -1,8 +1,5 @@
 # Portfolio Design Guide
 
-<!-- derived-from ../src/pages/index.astro -->
-<!-- derived-from ../src/styles/global.css -->
-
 ## Purpose
 
 This site is an Astro + TypeScript portfolio for an illustrator. The current visual direction is `muted character archive`: gray-lavender, soft linework, subtle mystery, and sparse copy.
@@ -11,27 +8,11 @@ This site is an Astro + TypeScript portfolio for an illustrator. The current vis
 
 - `Hero`: first impression, icon identity, and sparse CTAs.
 - `Stats`: compact archive indicators.
-- `Works`: filterable portfolio grid with detail dialog.
+- `Works`: filterable two-row horizontal rail with detail dialog.
 - `Notes`: latest blog entries linking into `/blog/`.
 - `Profile`: artist positioning and specialties.
 
-## Content Model
-
-Portfolio data lives in `src/data/portfolio.ts`.
-
-- `category` drives filtering.
-- `palette` drives card and dialog accent color.
-- `summary` is the scannable grid text.
-- `detail` is the dialog text.
-- `tags` appear as chips in the dialog.
-
-Keep real artwork metadata in this data file first, then add dedicated detail pages only when SEO or deep linking is needed.
-
-Blog posts live in `src/content/blog/*.md`.
-
-- `/blog/` lists every post.
-- `/blog/[slug]/` renders individual posts.
-- Frontmatter requires `title`, `description`, `date`, and optional `tags`.
+For content editing, see [Content Guide](./content-guide.md).
 
 ## Theme Surface
 
@@ -56,25 +37,14 @@ To change the atmosphere, edit tokens first. Avoid rewriting section structure f
 - Cards are only for repeated works, process steps, dialogs, or framed functional UI.
 - Buttons and filters must keep stable height so text changes do not shift layout.
 - The hero image should remain a real bitmap artwork, not a decorative gradient.
+- The Works rail should remain two rows. Horizontal scrolling is allowed; stacking into a single long column is not.
 
 ## Interaction Rules
 
 - Work filters are client-side and update `aria-selected`.
 - Work cards open a native `dialog` for details.
 - `Escape`, backdrop click, and close button must all dismiss the dialog.
+- Works scroll controls should reflect rail state: left disabled at the start, right disabled at the end.
 - Keep interactions dependency-free unless a new workflow truly needs a library.
 
-## Cloudflare Notes
-
-The project is configured for static Astro output.
-
-- Build command: `pnpm build`
-- Output directory: `dist`
-- Wrangler config: `wrangler.jsonc`
-- Cloudflare Pages can deploy the repository directly or via `pnpm deploy`.
-- The contact form posts JSON to `PUBLIC_CONTACT_ENDPOINT` or `/contact` by default.
-- The contact Worker lives in `workers/contact.ts` and deploys with `pnpm deploy:contact`.
-- Email sending uses the Cloudflare Email Service `send_email` binding named `EMAIL`.
-- The Worker sends contact mail to `karin+osushi-gallary@manj.io`.
-
-If the site later needs server-side personalization, forms, authenticated previews, or edge middleware, reassess whether to add a Cloudflare adapter or Pages Functions.
+For Cloudflare configuration and contact mail deployment, see [Deployment Guide](./deployment.md).
