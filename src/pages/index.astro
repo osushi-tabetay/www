@@ -127,7 +127,9 @@ const postPath = (id: string) => `/blog/${id.replace(/\.md$/, "")}/`;
 
   <dialog class="work-dialog" data-work-dialog aria-labelledby="dialog-title">
     <button class="work-dialog__close" type="button" data-close-dialog aria-label="Close">×</button>
-    <div class="work-dialog__art" data-dialog-art></div>
+    <div class="work-dialog__art" data-dialog-art>
+      <img class="work-dialog__image" data-dialog-image src="" alt="" style="display: none;" />
+    </div>
     <div class="work-dialog__body">
       <p class="eyebrow" data-dialog-meta></p>
       <h2 id="dialog-title" data-dialog-title></h2>

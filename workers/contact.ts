@@ -15,6 +15,7 @@ type Env = {
   EMAIL: SendEmail;
   CONTACT_TO: string;
   CONTACT_FROM: string;
+  CONTACT_WORKER_SECRET: string;
   ALLOWED_ORIGIN?: string;
 };
 
@@ -82,6 +83,13 @@ export default {
     const url = new URL(request.url);
     if (request.method !== "POST" || url.pathname !== "/contact") {
       return jsonResponse(request, env, { ok: false, error: "not_found" }, 404);
+    }
+
+    if (
+      !env.CONTACT_WORKER_SECRET ||
+      request.headers.get("x-contact-secret") !== env.CONTACT_WORKER_SECRET
+    ) {
+      return jsonResponse(request, env, { ok: false, error: "forbidden" }, 403);
     }
 
     let payload: ContactPayload;

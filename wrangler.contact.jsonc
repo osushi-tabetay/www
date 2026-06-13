@@ -3,6 +3,25 @@
   "name": "osushi-gallery-contact",
   "main": "workers/contact.ts",
   "compatibility_date": "2026-06-13",
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    },
+    "traces": {
+      "enabled": true,
+      "persist": true
+    }
+  },
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "contact.tabetay.com",
+      "custom_domain": true
+    }
+  ],
   "send_email": [
     {
       "name": "EMAIL",
@@ -10,8 +29,8 @@
     }
   ],
   "vars": {
-    "CONTACT_TO": "karin+osushi-gallary@manj.io",
-    "CONTACT_FROM": "osushi-gallary@manj.io",
-    "ALLOWED_ORIGIN": "http://127.0.0.1:4321,https://osushi-gallary.pages.dev"
+    "CONTACT_TO": "osushi@tabetay.com",
+    "CONTACT_FROM": "contact@tabetay.com",
+    "ALLOWED_ORIGIN": "https://www.tabetay.com,https://osushi-gallary.pages.dev"
   }
 }

@@ -10,7 +10,10 @@ const { work } = Astro.props;
 
 <article class="work-card" data-work-card data-category={work.category}>
   <button class="work-card__button" type="button" data-open-work={work.id} aria-haspopup="dialog">
-    <span class="work-card__art" style={`--card-accent: ${work.palette}`}>
+    <span class={`work-card__art${work.image ? " has-image" : ""}`} style={`--card-accent: ${work.palette}`}>
+      {work.image && (
+        <img class="work-card__image" src={work.image} alt={work.title} loading="lazy" decoding="async" />
+      )}
       <span class="work-card__spark"></span>
       <span class="work-card__titlemark">{work.title.slice(0, 2)}</span>
     </span>

@@ -52,9 +52,25 @@ function openWork(id: string) {
   if (!work || !dialog) return;
 
   const art = dialog.querySelector<HTMLElement>("[data-dialog-art]");
+  const img = dialog.querySelector<HTMLImageElement>("[data-dialog-image]");
   const tags = dialog.querySelector<HTMLElement>("[data-dialog-tags]");
 
   if (art) art.style.setProperty("--dialog-accent", work.palette);
+
+  if (img) {
+    if (work.image) {
+      img.src = work.image;
+      img.alt = work.title;
+      img.style.display = "";
+      art?.classList.add("has-image");
+    } else {
+      img.src = "";
+      img.alt = "";
+      img.style.display = "none";
+      art?.classList.remove("has-image");
+    }
+  }
+
   if (tags) {
     tags.replaceChildren(
       ...work.tags.map((tag) => {

@@ -10,6 +10,7 @@ export type PortfolioWork = {
   summary: string;
   detail: string;
   tags: string[];
+  image?: string;
 };
 
 export const categories: { id: "all" | WorkCategory; label: string }[] = [
@@ -32,6 +33,7 @@ export const works: PortfolioWork[] = [
     detail:
       "コート、眼鏡、小さな荷物。街灯の下で性格が少し見えるようにまとめた習作です。",
     tags: ["character", "night", "study"],
+    image: "/assets/works/neon-investigator.jpg",
   },
   {
     id: "sunny-archive",
@@ -44,6 +46,7 @@ export const works: PortfolioWork[] = [
     detail:
       "本、紙、窓辺の明るさ。静かな場所にだけ残る違和感を置いています。",
     tags: ["scene", "books", "light"],
+    image: "/assets/works/sunny-archive.jpg",
   },
   {
     id: "dice-party",
@@ -56,6 +59,7 @@ export const works: PortfolioWork[] = [
     detail:
       "距離感、視線、手元。並んだ時の関係性が読めるように配置したビジュアルです。",
     tags: ["group", "mood", "visual"],
+    image: "/assets/works/dice-party.jpg",
   },
   {
     id: "mystery-stickers",
@@ -68,6 +72,7 @@ export const works: PortfolioWork[] = [
     detail:
       "鍵、カップ、紙片、ダイス。キャラクターの周辺にあるものを軽く描いたシリーズです。",
     tags: ["objects", "dice", "mini"],
+    image: "/assets/works/mystery-stickers.jpg",
   },
   {
     id: "cozy-occult-club",
@@ -80,6 +85,7 @@ export const works: PortfolioWork[] = [
     detail:
       "不穏なモチーフを、丸いシルエットと淡い色で中和したデザインです。",
     tags: ["character", "club", "soft"],
+    image: "/assets/works/cozy-occult-club.jpg",
   },
   {
     id: "summer-ritual",
@@ -92,5 +98,6 @@ export const works: PortfolioWork[] = [
     detail:
       "夕方の温度感と、画面奥へ向かう小さな不安を同居させたシーンです。",
     tags: ["scene", "summer", "shadow"],
+    image: "/assets/works/summer-ritual.jpg",
   },
 ];

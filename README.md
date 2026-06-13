@@ -41,7 +41,7 @@ pnpm dev:contact
 Deploy:
 
 ```sh
-pnpm deploy
+pnpm deploy:site
 pnpm deploy:contact
 ```
 

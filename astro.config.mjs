@@ -2,5 +2,5 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   output: "static",
-  site: "https://osushi-gallary.pages.dev",
+  site: "https://www.tabetay.com",
 });
