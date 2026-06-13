@@ -25,6 +25,13 @@ pnpm build
 pnpm preview
 ```
 
+Pre-commit hooks:
+
+```sh
+prek install
+prek run --all-files
+```
+
 Contact Worker のローカル確認:
 
 ```sh

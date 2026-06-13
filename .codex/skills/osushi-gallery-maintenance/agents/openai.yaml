@@ -1,0 +1,6 @@
+interface:
+  display_name: "Osushi Gallery Maintenance"
+  short_description: "Update works, notes, profile, and palette."
+  default_prompt: "Use $osushi-gallery-maintenance to update Osushi Gallery content or styling."
+policy:
+  allow_implicit_invocation: true
