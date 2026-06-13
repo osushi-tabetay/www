@@ -1,6 +1,6 @@
 ---
 name: osushi-gallery-maintenance
-description: Use this repository-local skill when maintaining Osushi Gallery content or visual identity: add or remove Works artwork, add or remove blog notes, update the profile/about copy, or change the site color palette.
+description: "Use this repository-local skill when maintaining Osushi Gallery content or visual identity: add or remove Works artwork, add or remove blog notes, update the profile/about copy, or change the site color palette."
 ---
 
 # Osushi Gallery Maintenance
